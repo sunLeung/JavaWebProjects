@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="jar" name="game">
+	<property name="debug" value="true" />
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+	<property name="encoding" value="UTF-8" />
+	<property name="build.classes.dir" value="bin" />
+	<property name="game.dir" value="" />
+	<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter" /> 
+
+	<path id="game.classpath">
+		<pathelement location="${build.classes.dir}" />
+		<fileset dir="package" includes="*.jar" />
+		<fileset dir="lib" includes="*.jar" />
+	</path>
+	<mkdir dir="${build.classes.dir}" />
+	<target name="init">
+		<copy includeemptydirs="false" todir="${build.classes.dir}">
+			<fileset dir="src/common" excludes="**/*.launch, **/*.java" />
+			<fileset dir="src/mmo" excludes="**/*.launch, **/*.java" />
+			<fileset dir="src/protocol" excludes="**/*.launch, **/*.java" />
+		</copy>
+	</target>
+
+	<target name="build">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="${debug}" encoding="${encoding}" destdir="${build.classes.dir}" source="1.6" target="1.6" nowarn="true">
+			<src path="src/common" />
+			<src path="src/mmo" />
+			<src path="src/protocol" />
+			<classpath refid="game.classpath" />
+		</javac>
+	</target>
+
+	<target depends="build" name="jar">
+		<echo message="build jar package....." />
+		<jar jarfile="game.jar" manifest="MANIFEST.MF">
+			<fileset dir="${build.classes.dir}" includes="**" />
+		</jar>
+		
+	</target>
+
+</project>

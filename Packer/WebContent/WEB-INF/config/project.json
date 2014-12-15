@@ -1,0 +1,17 @@
+{
+    "projectDIR": "/home/liangyx/projects\\", 
+    "packer": "manualpacker.sh", 
+    "projects": [
+        {
+            "id": 0, 
+            "name": "test-project", 
+            "srcDIR": "/home/liangyx/projects/project1", 
+            "buildFolder": "project1", 
+            "users": [
+                1, 
+                0
+            ]
+        } 
+    ], 
+    "buildDIR": "/data/repertory/manualbuild/\\"
+}

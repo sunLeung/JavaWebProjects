@@ -1,0 +1,8 @@
+[
+	{"name":"打包管理","uri":"view/packer-manager.jsp"},
+	{"name":"游戏服管理","uri":"view/game-manager.jsp"},
+	{"name":"服务器配置","uri":"view/server-config.jsp"},
+	{"name":"项目配置","uri":"view/project-config.jsp"},
+	{"name":"","uri":"#"},
+	{"name":"用户管理","uri":"view/user-index.jsp"}
+]
