@@ -42,7 +42,7 @@
             
             <div id="loginErrorTip" class="tooltip fade right in" style="top: 95px;left: 340px; display: none;">
             	<div class="tooltip-arrow"></div>
-            	<div class="tooltip-inner" style="width: 123px;">ç¨æ·åå¯ç éè¯¯</div>
+            	<div class="tooltip-inner" style="width: 123px;">用户名密码错误</div>
             </div>
           </div>
          </form>

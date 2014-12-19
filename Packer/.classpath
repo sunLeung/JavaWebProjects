@@ -114,6 +114,11 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry sourcepath="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-websocket/8.0.15/3e823f45f72892dc847a3e27249c4350f6f7a87e/tomcat-websocket-8.0.15-sources.jar" kind="lib" path="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-websocket/8.0.15/443997697b3d90d2c2f6486f3bc0fea756fdc7fb/tomcat-websocket-8.0.15.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="C:/Users/l/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar" kind="lib" path="C:/Users/l/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -125,6 +130,26 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/l/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar" kind="lib" path="C:/Users/l/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/8.0.15/78865537b3eb28724f7e8105d78db12ebaf4d6a8/tomcat-servlet-api-8.0.15-sources.jar" kind="lib" path="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/8.0.15/1ec847e8abb947a6eb6139c9df36ac63b67c4135/tomcat-servlet-api-8.0.15.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-websocket-api/8.0.15/20374ff8e2247b1ab2f31a5eaf6824ed51610bca/tomcat-websocket-api-8.0.15-sources.jar" kind="lib" path="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-websocket-api/8.0.15/ba8d50ffecc02bb866ef874d9f776b2f8115bd1f/tomcat-websocket-api-8.0.15.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.0.15/b2656c0960477fd269c2d0982ca433042aaac808/tomcat-juli-8.0.15-sources.jar" kind="lib" path="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.0.15/c53b9d462d477cc4731f78c9a033eabb638a9e04/tomcat-juli-8.0.15.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-util/8.0.15/6c62af2ffe83f50b879baca76efd6623c75c06c2/tomcat-util-8.0.15-sources.jar" kind="lib" path="C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-util/8.0.15/1d30519b60c7b05319e97b9a02e4776852002c90/tomcat-util-8.0.15.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>

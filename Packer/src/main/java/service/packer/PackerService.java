@@ -109,7 +109,7 @@ public class PackerService {
 			String codeFile = userBuildDIR + File.separator + "game.jar";
 			String resFile = userBuildDIR + File.separator + "res.zip";
 			String[] uploadfiles = new String[] { codeFile, resFile };
-			boolean result = SSHUtils.uploadFile(uploadserver, uploadfiles);
+			boolean result = SSHUtils.uploadFile(uploadserver, uploadfiles,session);
 			if (result) {
 				return JsonRespUtils.success("上传完成");
 			}

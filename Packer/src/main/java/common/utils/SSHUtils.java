@@ -1,6 +1,7 @@
 package common.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -88,7 +89,7 @@ public class SSHUtils {
 		return result;
 	}
 
-	public static boolean uploadFile(UploadServer server,String[] files){
+	public static boolean uploadFile(UploadServer server,String[] files,HttpSession httpSession){
 		try {
 			JSch.setConfig("StrictHostKeyChecking", "no");
 			JSch jsch = new JSch();
@@ -102,7 +103,7 @@ public class SSHUtils {
 			
 			int mode=ChannelSftp.OVERWRITE;
 			for(String file:files){
-				c.put(file,server.getUploadDIR(),new MyProgressMonitor(), mode); 
+				c.put(file,server.getUploadDIR(),new MyProgressMonitor(httpSession,server), mode); 
 			}
 			c.disconnect();
 			session.disconnect();
@@ -140,10 +141,19 @@ public class SSHUtils {
 		private long percent = -1;
 		private String src;
 		private String dest;
+		private HttpSession httpSession;
+		private UploadServer uploaderServer;
+		private String fileName;
+		public MyProgressMonitor(HttpSession httpSession,UploadServer uploaderServer){
+			this.httpSession=httpSession;
+			this.uploaderServer=uploaderServer;
+		}
 		public void init(int op, String src, String dest, long max) {
 			this.max = max;
 			this.src=src;
 			this.dest=dest;
+			String[] path=src.split(File.separator);
+			this.fileName=path[path.length-1];
 			count = 0;
 			percent = -1;
 			System.out.println(((op == SftpProgressMonitor.PUT) ? "put" : "get") + ": "+ src);
@@ -160,6 +170,7 @@ public class SSHUtils {
 			percent = this.count * 100 / max;
 
 			System.out.println(("Completed " + src +"  "+ this.count + "(" + percent + "%) out of " + max + "."));
+			JsonRespUtils.responseWsResUpload(httpSession, "packer:uploadfile:"+uploaderServer.getId(), uploaderServer.getId(), fileName, percent+"%");
 			return true;
 		}
 		public void end() {
@@ -167,7 +178,7 @@ public class SSHUtils {
 		}
 	}
 	
-	public static String runRemoteCMD(String cmd, Session session, String endStr) throws JSchException, IOException {
+	public static String runRemoteCMD(String cmd, Session session, String endStr,HttpSession httpSession,int gameserverid) throws JSchException, IOException {
 		Channel channel = session.openChannel("exec");
 		((ChannelExec) channel).setCommand(cmd);
 		BufferedReader br = new BufferedReader(new InputStreamReader(channel.getInputStream()));
@@ -180,7 +191,9 @@ public class SSHUtils {
 		StringBuilder sb=new StringBuilder();
 		while ((temp = br.readLine()) != null) {
 			log.info(temp);
-			sb.append(temp).append("\n");
+			if(!cmd.contains("grep"))
+				JsonRespUtils.responseWsGameManager(httpSession,"gameManager:gameserverid:"+gameserverid, gameserverid, temp);
+			//sb.append(temp).append("\n");
 			if (temp.contains(endStr)) {
 				break;
 			}
@@ -193,7 +206,7 @@ public class SSHUtils {
 		return sb.toString();
 	}
 	
-	public static String runRemoteCMD(String cmd, Session session) throws JSchException, IOException {
+	public static String runRemoteCMD(String cmd, Session session,HttpSession httpSession,int gameserverid) throws JSchException, IOException {
 		Channel channel = session.openChannel("exec");
 		((ChannelExec) channel).setCommand(cmd);
 		BufferedReader br = new BufferedReader(new InputStreamReader(channel.getInputStream()));
@@ -206,6 +219,8 @@ public class SSHUtils {
 		StringBuilder sb=new StringBuilder();
 		while ((temp = br.readLine()) != null) {
 			log.info(temp);
+			if(!cmd.contains("grep"))
+				JsonRespUtils.responseWsGameManager(httpSession,"gameManager:gameserverid:"+gameserverid, gameserverid, temp);
 			sb.append(temp).append("\n");
 		}
 		channel.disconnect();

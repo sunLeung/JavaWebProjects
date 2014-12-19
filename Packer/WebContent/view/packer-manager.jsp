@@ -116,6 +116,13 @@ $(document).ready(function(){
 		var uploadserverid=$("#select-uploadserver-"+resourceid).val();
 		$.myconfirm("确定上传？",function(){
 		    $btn.button('loading');
+		    createWS('packer:uploadfile:'+uploadserverid,function(evt){
+		    	var data=jQuery.parseJSON(evt.data);
+				console.log(data);
+				var file=data.file;
+				var percent=data.percent;
+				$btn.next().text(file+":"+percent);
+		    });
 			$.post("packer/upload.do",{projectid:projectid,resourceid:resourceid,uploadserverid:uploadserverid},function(data, textStatus, jqXHR){
 				var json=data;
 				$.myalert(json.data);

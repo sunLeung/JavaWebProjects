@@ -10,6 +10,12 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.34/46deba4adbdb4967367b013cbc67b7f7373da60a/mysql-connector-java-5.1.34.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.0.15/c53b9d462d477cc4731f78c9a033eabb638a9e04/tomcat-juli-8.0.15.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/8.0.15/1ec847e8abb947a6eb6139c9df36ac63b67c4135/tomcat-servlet-api-8.0.15.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.1/761ea405b9b37ced573d2df0d1e3a4e0f9edc668/commons-collections-3.2.1.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
@@ -29,6 +35,9 @@
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.1.3.RELEASE/2c39194ad514fc4b8a13b0f2155a59248e4f05d/spring-context-4.1.3.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-util/8.0.15/1d30519b60c7b05319e97b9a02e4776852002c90/tomcat-util-8.0.15.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/com.mchange/c3p0/0.9.2.1/11b29ccb286d34eb804b7f6a3786809c9bd2e1b7/c3p0-0.9.2.1.jar">
@@ -52,6 +61,9 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-websocket/8.0.15/443997697b3d90d2c2f6486f3bc0fea756fdc7fb/tomcat-websocket-8.0.15.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.1.3.RELEASE/53695581a8a1860c4c23b1e712007749c41ff7f/spring-expression-4.1.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
@@ -62,6 +74,9 @@
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch/0.1.51/6ceee2696b07cc320d0e1aaea82c7b40768aca0f/jsch-0.1.51.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-websocket-api/8.0.15/ba8d50ffecc02bb866ef874d9f776b2f8115bd1f/tomcat-websocket-api-8.0.15.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/l/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/3cd63d075497751784b2fa84be59432f4905bf7c/javax.servlet-api-3.1.0.jar">

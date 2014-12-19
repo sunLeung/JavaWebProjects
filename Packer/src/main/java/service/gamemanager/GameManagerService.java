@@ -137,6 +137,13 @@ public class GameManagerService {
 					}
 				}
 			}
+			Map<String,Session> sessions=(Map<String,Session>)session.getAttribute("WSContext");
+			if(sessions!=null){
+				javax.websocket.Session se=(javax.websocket.Session)sessions.get("gameManager:gameserverid:"+gameserverid);
+				if(se!=null){
+					se.close();
+				}
+			}
 			return JsonRespUtils.success("已和远程服务器断开连接");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -154,7 +161,7 @@ public class GameManagerService {
 			}
 			String ps="";
 			Map<String,Object> result=new HashMap<String, Object>(); 
-			ps=SSHUtils.runRemoteCMD("ps -ef | grep java", SSHUtils.getSSHSession(session, gs));
+			ps=SSHUtils.runRemoteCMD("ps -ef | grep java", SSHUtils.getSSHSession(session, gs),session,gs.getId());
 			if(StringUtils.isBlank(ps)){
 				result.put("state", -1);
 				result.put("msg", "检测失败");
@@ -183,7 +190,7 @@ public class GameManagerService {
 				return JsonRespUtils.fail("关服失败,获取服务器失败");
 			}
 			String cmd=gs.getGameDIR()+"stop.sh";
-			String result=SSHUtils.runRemoteCMD(cmd, SSHUtils.getSSHSession(session, gs));
+			String result=SSHUtils.runRemoteCMD(cmd, SSHUtils.getSSHSession(session, gs),session,gs.getId());
 			return JsonRespUtils.success("关服成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -201,11 +208,11 @@ public class GameManagerService {
 			}
 			String ps="";
 			String cmd="ps x|grep java| grep "+gs.getKeywords()+" |awk '{print $1}'";
-			ps=SSHUtils.runRemoteCMD(cmd, SSHUtils.getSSHSession(session, gs));
+			ps=SSHUtils.runRemoteCMD(cmd, SSHUtils.getSSHSession(session, gs),session,gs.getId());
 			if(StringUtils.isNotBlank(ps)){
 				ps=ps.trim();
 				cmd="kill -9 "+ps;
-				SSHUtils.runRemoteCMD(cmd, SSHUtils.getSSHSession(session, gs));
+				SSHUtils.runRemoteCMD(cmd, SSHUtils.getSSHSession(session, gs),session,gs.getId());
 				return JsonRespUtils.success("强制关服成功");
 			}
 			return JsonRespUtils.fail("强制关服失败");
@@ -226,10 +233,10 @@ public class GameManagerService {
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 			String cmd=gs.getGameDIR()+"auto.sh";
 			String result="";
-			result=SSHUtils.runRemoteCMD(cmd,SSHUtils.getSSHSession(session, gs),"now desktop is");
+			result=SSHUtils.runRemoteCMD(cmd,SSHUtils.getSSHSession(session, gs),"now desktop is",session,gs.getId());
 			cmd="tail -f "+gs.getGameDIR()+"logs/"+sdf.format(new Date())+".log";
 			result+="\n";
-			result=SSHUtils.runRemoteCMD(cmd,SSHUtils.getSSHSession(session, gs),"listen on");
+			result=SSHUtils.runRemoteCMD(cmd,SSHUtils.getSSHSession(session, gs),"listen on",session,gs.getId());
 			return JsonRespUtils.success(result);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -9,6 +9,7 @@
 User user=(User)session.getAttribute("user");
 List<GameServer> gsList=ServerConfigService.getGameServers(user);
 %>
+
 <div class="page-header">
   <h6 class="title-font">游戏服 <small style="title-font">管理</small></h6>
 </div>
@@ -81,6 +82,15 @@ $(document).ready(function(){
 					show:true
 				});
 				checkServerState(gameserverid);
+				//创建WS
+				createWS("gameManager:gameserverid:"+gameserverid,function(evt){
+					var data=jQuery.parseJSON(evt.data);
+					console.log(data);
+					var content=data.content;
+					var gameserverid=data.gameserverid;
+					$('#gameserver-panel[serverid='+gameserverid+']').find("#out-put-area").append("<p>"+content+"<p>");
+					$('.content-box').scrollTop( $('.content-box')[0].scrollHeight );
+				});
 			}
 			$("#loading").hide();
 		},"json");
@@ -129,7 +139,7 @@ $(document).ready(function(){
 		    $("#out-put-area").append("<p>正在开服...</p>");
 			$.post("gamemanager/start-server.do",{gameserverid:gameserverid},function(data, textStatus, jqXHR){
 				var json=data;
-				$("#out-put-area").append("<p>"+json.data+"<p>");
+				//$("#out-put-area").append("<p>"+json.data+"<p>");
 				$btn.button("reset");
 				checkServerState(gameserverid);
 			},"json");
@@ -141,6 +151,7 @@ $(document).ready(function(){
 		$.myconfirm("确定关服？",function(){
 		    var $btn = $("#btn-stop-server").button('loading');
 		    $("#out-put-area").append("<p>正在关服...</p>");
+		    $('.content-box').scrollTop( $('.content-box')[0].scrollHeight );
 			$.post("gamemanager/stop-server.do",{gameserverid:gameserverid},function(data, textStatus, jqXHR){
 				var json=data;
 				$("#out-put-area").append("<p>"+json.data+"<p>");
@@ -155,11 +166,13 @@ $(document).ready(function(){
 		$.myconfirm("确定强制关服？",function(){
 		    var $btn = $("#btn-force-stop-server").button('loading');
 		    $("#out-put-area").append("<p>正在强制关服...</p>");
+		    $('.content-box').scrollTop( $('.content-box')[0].scrollHeight );
 			$.post("gamemanager/forcestop-server.do",{gameserverid:gameserverid},function(data, textStatus, jqXHR){
 				var json=data;
 				$("#out-put-area").append("<p>"+json.data+"<p>");
 				$btn.button("reset");
 				checkServerState(gameserverid);
+				$('.content-box').scrollTop( $('.content-box')[0].scrollHeight );
 			},"json");
 		});
 	});

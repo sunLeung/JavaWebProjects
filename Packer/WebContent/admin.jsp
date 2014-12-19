@@ -96,6 +96,7 @@ List<Navigation> navigation=UserService.getNavigation(session);
 <script src="scripts/controllers.js" type="text/javascript"></script>
 <script src="scripts/services.js" type="text/javascript"></script>
 <script src="scripts/directives.js" type="text/javascript"></script>
+<script src="scripts/ws.js" type="text/javascript"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="lib/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 <script src="lib/Flat-UI-master/js/flat-ui.min.js"></script>

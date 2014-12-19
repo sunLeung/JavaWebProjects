@@ -33,4 +33,8 @@ public class Def {
 	/**业务路由失败*/
 	public static final int CODE_ROUTE_FAIL=3;
 	
+	/*****************************WS协议号***************************/
+	public static final int OPEN_GAMESERVER=0x00;
+	public static final int TEST=0xff;
+	
 }
