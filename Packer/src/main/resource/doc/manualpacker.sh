@@ -31,6 +31,7 @@ echo -------------svn update completed--------------------
 /bin/\cp ${workdir}/${configdir}/*.txt ${workdir}/${gameProject}/res/gds
 /bin/\cp ${workdir}/${configdir}/*.json ${workdir}/${gameProject}/res/gds
 echo --------------copy file completed---------------------
+/bin/\rm -rf ${workdir}/${gameProject}/bin
 ant -buildfile ${workdir}/${gameProject}/build.xml
 echo ------------------build completed---------------------
 rm -rf ${builddir}
